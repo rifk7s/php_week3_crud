@@ -36,6 +36,7 @@ mysqli_close($conn); // Close the database connection
                         <th>asal</th>
                         <th>harga</th>
                         <th>foto</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -47,6 +48,10 @@ mysqli_close($conn); // Close the database connection
                                 <td><?php echo htmlspecialchars($row['harga']); ?></td>
                                 <td><img src="<?php echo htmlspecialchars($row['foto']); ?>"
                                 alt="<?php echo htmlspecialchars($row['nama']); ?>" width="96"></td>
+                                <td>
+                                    <a href="edit_data.php?id=<?php echo $row['id']; ?>">Edit</a> |
+                                    <a href="delete_data.php?id=<?php echo $row['id']; ?>" onclick="return confirm('Yakin ingin menghapus data ini?');">Delete</a>
+                                </td>
                             </tr>
                     <?php endforeach; ?>
                 </tbody>
